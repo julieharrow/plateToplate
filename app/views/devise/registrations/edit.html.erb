@@ -1,7 +1,45 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit<%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true,
+    placeholder: "First and Last Name" %>
+  </div><br />
+  
+  <div class="field"
+    <%= f.text_field :location, placeholder: "Location" %>
+  </div><br />
+  
+  <div class="field">
+    <%= f.text_area :my_story, placeholder: "Your Story" %>
+  </div><br />
+  
+  <div class="field">
+    <%=f.text_field :i_can_teach_you, placeholder: "Cuisine You Can Teach" %>
+  </div><br />
+  
+  <div class="field">
+    <%=f.text_field :i_want_to_learn, placeholder: "Cuisine I Want To Learn" %>
+  </div><br />
+  
+  <div class="field">
+    <%#=f.text_field :happy_to_host, placeholder: "Happy to Host" %>
+    <%= f.label "Happy to Host?" %> <br />
+    <%= f.check_box :happy_to_host%>
+  </div></br>
+  
+  <div class="field">
+    <%#=f.text_field :happy_to_host, placeholder: "Happy to Travel" %>
+    <%= f.label "Happy to Travel?" %> <br />
+    <%= f.check_box :happy_to_travel %>
+  </div></br>
+  
+  <div class="field form-group">
+    <%= f.label "Photo" %> <br />
+    <%= f.file_field :avatar %>
+  </div></br>
 
   <div class="field">
     <%= f.label :email %><br />
