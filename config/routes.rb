@@ -1,16 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'recipes/index'
-
-  get 'recipes/show'
-
-  get 'recipes/new'
-
-  get 'recipes/edit'
-
   get "profiles/:id" => "profiles#show", as: :profile
   root 'profiles#index'
-
+  resources :recipes
   devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
