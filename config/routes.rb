@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'recipes/index'
+
+  get 'recipes/show'
+
+  get 'recipes/new'
+
+  get 'recipes/edit'
+
   get "profiles/:id" => "profiles#show", as: :profile
   root 'profiles#index'
 
