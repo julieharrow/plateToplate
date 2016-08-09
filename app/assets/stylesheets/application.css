@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ .navbar-brand {
+   padding: 0px; /* firefox bug fix */
+ }
+ .navbar-brand>img {
+   height: 100%;
+   padding: 15px; /* firefox bug fix */
+   width: auto;
+ }
+
+  p {
+   background-color: #F9DAD0
+ }
