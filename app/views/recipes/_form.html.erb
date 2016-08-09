@@ -1,0 +1,71 @@
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <form class="form-horizontal">
+      <div class="form group">
+        <label class="col-xs-6 col-md-4 control-label" for="inputTitle1">Name</label>
+        <div class="col-md-8">
+          <%= f.text_field :name, class: "form-control", id:"inputTitle1", placeholder:"Name" %>
+        </div>
+      </div>
+      
+        <div class="form-group">
+        <label class="col-xs-6 col-md-4 control-label" for="inputDiffic1">Expected Time</label>
+          <div class="col-md-8">
+            <%= f.text_area :expected_time, class:"form-control", id:"inputDiffic1", placeholder:"Expected Time", rows: 5 %>
+          </div>
+        </div>
+
+      <div class="form-group">
+        <label class="col-xs-6 col-md-4 control-label" for="inputIngred1">Ingredients</label>
+        <div class="col-md-8">
+          <%= f.text_area :ingredients, class:"form-control", id:"inputIngred1", placeholder:"Ingredients Needed", rows: 10 %>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-xs-6 col-md-4 control-label" for="inputInstr1">Instructions</label>
+        <div class="col-md-8">
+          <%= f.text_area :instructions, class:"form-control", id:"inputIngred1", placeholder:"Instructions", rows: 20 %>
+        </div>
+      </div>
+      
+      <!--<div class="field form-group">
+        <div class="col-md-4">
+            <%#= f.label "Add Photo" %>
+            <%#= f.file_field :avatar %>
+            <%# if @recipe.avatar_file_name != nil %>
+               <%#= image_tag @recipe.avatar.url(:thumb) %>
+               <%#= f.label "Remove Photo" %>
+               <%#= f.check_box :remove_avatar %> #need to set this param if we use it
+            <%# end %>
+            <br>
+        </div>
+      </div>!-->
+
+      <div class="action-group">
+        <div class="col-md-6">
+          <%= f.submit "Publish Recipe", class:"btn btn-default"%>
+          <%= link_to 'Back', :back, class:"btn btn-default" %>
+          <%= link_to 'Remove Recipe', @recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+        </div>
+      </div>
+    <!--</form #do we want this?  Right now we have no :user_id, etc.
+    <%# if user_signed_in? %>
+      <div class="form-group cant-see-me">
+        <%#= f.number_field :user_id, value: current_user.id %>
+      </div>
+    <%# end %>!-->
+
+<% end %>
+<br />
