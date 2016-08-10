@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  cuisine_id: 1
+  teach: false
+  learn: false
+
+two:
+  user_id: 1
+  cuisine_id: 1
+  teach: false
+  learn: false
