@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
 
   def update
     if @recipe.update(recipe_params)
-      format.html {redirect_tp @recipe, notice: "Recipe was successfully updated."}
+      format.html {redirect_to @recipe, notice: "Recipe was successfully updated."}
     else
       format.html {render :edit}
     end
