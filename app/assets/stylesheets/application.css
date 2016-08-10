@@ -21,7 +21,6 @@
    padding: 15px; /* firefox bug fix */
    width: auto;
  }
-
-  p {
-   background-color: #F9DAD0
+ body {
+   background: #EFD9CE;
  }
