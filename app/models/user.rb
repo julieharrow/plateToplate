@@ -8,4 +8,13 @@ class User < ActiveRecord::Base
 
   has_many :recipes
   has_many :user_cuisines
+
+  def desired_cuisines
+    user_cuisines.where(learn: true)
+  end
+  def user_teach_cuisine
+    user_cuisines.where(teach: true)
+  end
+  def self.teach_for_user()
+  end
 end
