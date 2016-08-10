@@ -1,2 +1,36 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+<div class = "container">
+    
+<h4>Shared Recipe</h4>
+<div class="panel panel-primary">
+  <div class="panel heading"> 
+    <%= @recipe.name %>
+  </div>
+</div> <!-- remove if you want other stuff on this panel -->
+
+<h4>Expected Time</h4>
+<div class="panel panel-primary">
+  <div class="panel heading">
+    <%= @recipe.expected_time %>
+  </div>
+</div>
+
+<h4>Ingredients</h4>
+<div class="panel panel-primary">
+  <div class="panel heading"> 
+    <%= @recipe.ingredients %>
+  </div>
+</div> <!-- same thing here-->
+
+<h4>Instructions</h4>
+<div class="panel panel-primary">
+  <div class="panel heading"> 
+  <%= @recipe.instructions %>
+  </div>
+</div><!--3rd panel without a 'panel-body'-->
+
+<% if @recipe.pic_file_name != nil %>
+      <%= image_tag @recipe.pic.url(:medium) %>
+   <% end %>
+</div>
+<%= link_to 'Back', recipes_path, class:"btn btn-default" %>
