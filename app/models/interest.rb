@@ -1,6 +1,6 @@
 class Interest < ActiveRecord::Base
-  belongs_to :users
-  belongs_to :cuisines
+  belongs_to :user
+  belongs_to :cuisine
 
 
 

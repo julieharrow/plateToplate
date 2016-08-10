@@ -1,4 +1,4 @@
 class Cuisine < ActiveRecord::Base
-  has_many :users, through: :user_cuisines
-  has_many :user_cuisines
+  has_many :users, through: :interests
+  has_many :interests
 end

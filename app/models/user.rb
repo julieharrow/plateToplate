@@ -7,10 +7,11 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :recipes
-  has_many :user_cuisines
+  has_many :interests
 
   def desired_cuisines
-    interests.where(learn: true)
+    arr = []
+    arr << interests.where(learn: true)
   end
   def user_teach_cuisine
     interests.where(teach: true)
