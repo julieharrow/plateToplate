@@ -40,24 +40,24 @@
         </div>
       </div>
       
-      <!--<div class="field form-group">
+      <div class="field form-group">
         <div class="col-md-4">
-            <%#= f.label "Add Photo" %>
-            <%#= f.file_field :avatar %>
-            <%# if @recipe.avatar_file_name != nil %>
-               <%#= image_tag @recipe.avatar.url(:thumb) %>
-               <%#= f.label "Remove Photo" %>
-               <%#= f.check_box :remove_avatar %> #need to set this param if we use it
-            <%# end %>
+            <%= f.label "Add Photo" %>
+            <%= f.file_field :pic %>
+            <% if @recipe.pic_file_name != nil %>
+               <%= image_tag @recipe.pic.url(:thumb) %>
+               <%= f.label "Remove Photo" %>
+               <%= f.check_box :remove_pic %> 
+            <% end %>
             <br>
         </div>
-      </div>!-->
+      </div>
 
       <div class="action-group">
         <div class="col-md-6">
           <%= f.submit "Publish Recipe", class:"btn btn-default"%>
-          <%= link_to 'Back', :back, class:"btn btn-default" %>
           <%= link_to 'Remove Recipe', @recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+          <%= link_to 'Back', :back, class:"btn btn-default" %>
         </div>
       </div>
     <!--</form #do we want this?  Right now we have no :user_id, etc.
