@@ -1,6 +1,6 @@
-class CreateUserCuisines < ActiveRecord::Migration
+class CreateInterests < ActiveRecord::Migration
   def change
-    create_table :user_cuisines do |t|
+    create_table :interests do |t|
       t.integer :user_id
       t.integer :cuisine_id
       t.boolean :teach
