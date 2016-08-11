@@ -5,33 +5,25 @@
   <p id="notice"><%= notice %></p>
   <div class = "container">
 
-  <h4>Shared Recipe</h4>
-  <div class="panel panel-primary">
-    <div class="panel heading">
-      <%= link_to recipe.name, recipe_path(recipe), class:"btn btn-default" %>
-    </div>
-  </div> <!-- remove if you want other stuff on this panel -->
+<div class="bd-example"
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Shared Recipe</h4>
+        <%= link_to recipe.name, recipe_path(recipe), class:"btn btn-primary" %>
+        <h5>Expected Time (in minutes)</h5>
+        <%= recipe.expected_time %>
+        <h5>Ingredients</h5>
+        <%= recipe.ingredients %>
+        <h5>Instructions</h5>
+        <%= recipe.instructions %>
 
-  <h4>Expected Time</h4>
-  <div class="panel panel-primary">
-    <div class="panel heading">
-      <%= recipe.expected_time %>
+
+      </div>
     </div>
   </div>
 
-  <h4>Ingredients</h4>
-  <div class="panel panel-primary">
-    <div class="panel heading">
-      <%= recipe.ingredients %>
-    </div>
-  </div> <!-- same thing here-->
-
-  <h4>Instructions</h4>
-  <div class="panel panel-primary">
-    <div class="panel heading">
-    <%= recipe.instructions %>
-    </div>
-  </div><!--3rd panel without a 'panel-body'-->
+  
 
   <% if recipe.pic_file_name != nil %>
         <%= image_tag recipe.pic.url(:medium) %>

@@ -24,3 +24,10 @@
  body {
    background: #EFD9CE;
  }
+
+ .bd-example {
+    position: relative;
+    margin: 1rem -1rem;
+    padding: 20px;
+    border: solid #f7f7f9;
+}
