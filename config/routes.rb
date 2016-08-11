@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   get "profiles/:id" => "profiles#show", as: :profile
+  get "profiles/:id/recipes" => "profiles#my_recipes"
   root 'profiles#index'
+  
   resources :recipes
   devise_for :users
 
