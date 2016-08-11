@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :recipes
   has_many :interests
+  has_many :cuisines
+  accepts_nested_attributes_for :cuisines, reject_if: :all_blank, allow_destroy: true
 
   def desired_cuisines
     arr = []

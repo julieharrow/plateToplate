@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :location, :my_story, :i_can_teach_you, :i_want_to_learn, :happy_to_host, :happy_to_travel, :avatar])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :location, :my_story, :i_can_teach_you, :i_want_to_learn, :happy_to_host, :happy_to_travel, :avatar])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :location, :my_story, :happy_to_host, :happy_to_travel, :avatar, cuisines_attributes: [:id, :name, :_destroy]])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :location, :my_story, :happy_to_host, :happy_to_travel, :avatar, cuisines_attributes: [:id, :name, :_destroy]])
   end
 end
