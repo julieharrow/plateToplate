@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get 'profiles/:id/recipes' => 'profiles#my_recipes'
   get 'profiles/index'
 
-  get 'interests/index'
-  get 'interests/new'
+  get 'interests/index' => "interests#index", as: :interests
+  get 'interests/new_learn'
+  get 'interests/new_teach'
   get 'interests/show'
   get 'interests/edit'
 
@@ -15,6 +16,6 @@ Rails.application.routes.draw do
   get 'cuisines/edit'
 
   resources :recipes
-  devise_for :users
+  devise_for :users, controllers:{registrations: 'users/registrations'}
 
 end

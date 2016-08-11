@@ -1,0 +1,27 @@
+<h1>Interests#new</h1>
+<p>Which cuisine are you interested in learning?</p>
+
+<%= form_for(@interest) do |f| %>
+  <% if @interest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interest.errors.count, "error") %> prohibited this interest from being saved:</h2>
+      <ul>
+      <% @interest.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <form class="form-horizontal">
+   <div class="form group">
+     <label class="col-xs-6 col-md-4 control-label" for="inputTitle1">Name</label>
+     <div class="col-md-8">
+       <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %>
+     </div>
+     <div class="field cant-see-me">
+       <%= f.check_box :learn, value:true%>
+     </div></br>
+   </div>
+  </form>
+<% end %>
