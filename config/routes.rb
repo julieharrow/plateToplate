@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   get 'interests/index'
 
   get 'interests/new'
@@ -20,6 +21,12 @@ Rails.application.routes.draw do
   get 'profiles/:id' => 'profiles#show', as: :profile
   get 'profiles/index'
 
+=======
+  get "profiles/:id" => "profiles#show", as: :profile
+  get "profiles/:id/recipes" => "profiles#my_recipes"
+  root 'profiles#index'
+  
+>>>>>>> fd54870ed6a61008f8c4811810e0ead05cd1f7c2
   resources :recipes
   devise_for :users
 

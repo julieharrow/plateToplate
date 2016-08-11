@@ -1,2 +1,20 @@
 <h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+
+<h3><%= @user.name %>'s Profile</h3> <!-- this was singular because we are looking at ONE user's profile !--> 
+
+    <div class="panel heading">
+    <h4>My Story</h4>
+    <p><%= @user.my_story %></p>
+    </div>
+  
+  <h5><%= @user.happy_to_host %></h5>
+  <h5><p><%= @user.happy_to_travel %></p></h5>
+  <h5><%= @user.location %></h5>
+  
+  <h4>User Recipes Link Practice</h4>
+  <div class="panel panel-primary">
+    <div class="panel heading">
+      <%= link_to @user.name, profile_path(@user), class:"btn btn-default" %>
+    </div>
+  </div> 
+ <%# end %>

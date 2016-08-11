@@ -1,2 +1,12 @@
-<h1>Profiles#index</h1>
-<p>Find me in app/views/profiles/index.html.erb</p>
+<h1>All Users<h1/>
+<% @users.each do |user|  %>
+  <p id="notice"><%= notice %></p>
+  <div class = "container">
+
+  <h4>Users</h4>
+  <div class="panel panel-primary">
+    <div class="panel heading">
+      <%= link_to user.name, profile_path(user), class:"btn btn-default" %>
+    </div>
+  </div> 
+ <% end %>
