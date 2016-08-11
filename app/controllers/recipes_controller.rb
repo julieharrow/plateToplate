@@ -6,11 +6,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
   end
-  
-  def my_recipes
-    @recipes = Recipe.where("user_id = ?", current_user)
-  end 
-    
+
 
   def new
     @recipe = Recipe.new
