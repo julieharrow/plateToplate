@@ -7,12 +7,11 @@ class InterestsController < ApplicationController
     @interest = Interest.find(params[:id])
   end
 
-
-  def new_learn
+  def learn_new
     @interest = Interest.new
   end
 
-  def new_teach
+  def teach_new
     @interest = Interest.new
   end
 
@@ -22,7 +21,7 @@ class InterestsController < ApplicationController
   def create
     @interest = Interest.new(interest_params)
     if @interest.save
-      redirect_to interest_new_path, notice: "You have successfully created a interest!"
+      redirect_to interests_path, notice: "You have successfully created a interest!"
     else
       render :new
     end
@@ -30,7 +29,7 @@ class InterestsController < ApplicationController
 
   def update
     if @interest.update(interest_params)
-      format.html {redirect_to @interest, notice: "interest was successfully updated."}
+      format.html {redirect_to interests_path, notice: "interest was successfully updated."}
     else
       format.html {render :edit}
     end

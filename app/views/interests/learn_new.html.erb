@@ -1,4 +1,4 @@
-<h1>Interests#new</h1>
+<h1>Interests#new_learn</h1>
 <p>Which cuisine are you interested in learning?</p>
 
 <%= form_for(@interest) do |f| %>
@@ -14,14 +14,23 @@
   <% end %>
 
   <form class="form-horizontal">
-   <div class="form group">
+   <div class="form-group">
      <label class="col-xs-6 col-md-4 control-label" for="inputTitle1">Name</label>
      <div class="col-md-8">
        <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %>
      </div>
-     <div class="field cant-see-me">
-       <%= f.check_box :learn, value:true%>
+     <div class="form-group cant-see-me">
+       <%= f.number_field :user_id, value: current_user.id %>
+       <%= f.check_box :user_id, value: current_user.id %>
      </div></br>
    </div>
   </form>
+
+  <div class="action-group">
+    <div class="col-md-6">
+      <%= f.submit "Submit", class:"btn btn-default"%>
+      <%= f.submit "Add Another Cuisine!", class:"btn btn-default"%>
+      <%= link_to 'Add Another Cuisine!', interests_learn_new_path, class:"btn btn-default" %>
+    </div>
+  </div>
 <% end %>

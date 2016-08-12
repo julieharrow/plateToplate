@@ -9,11 +9,11 @@
 
   <h5><%= @user.happy_to_host %></h5>
   <h5><p><%= @user.happy_to_travel %></p></h5>
-  <h5><%= @user.location %></h5>
+  <h5><%= @user.zip_code %></h5>
 
   <h4>User Recipes Link Practice</h4>
   <div class="panel panel-primary">
     <div class="panel heading">
       <%= link_to @user.name, profile_path(@user), class:"btn btn-default" %>
     </div>
-  </div> 
+  </div>
