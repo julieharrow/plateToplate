@@ -8,16 +8,12 @@ class User < ActiveRecord::Base
 
   has_many :recipes
   has_many :interests
-  has_many :cuisines
-  accepts_nested_attributes_for :cuisines, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :interests, reject_if: :all_blank, allow_destroy: true
 
-  def desired_cuisines
-    arr = []
-    arr << interests.where(learn: true)
+  def self.wants_to_learn
+    interests.where(learn: true).cuisine
   end
-  def user_teach_cuisine
-    interests.where(teach: true)
-  end
-  def self.teach_for_user()
+  def self.wants_to_teach
+    interests.where(teach: true).cuisine
   end
 end

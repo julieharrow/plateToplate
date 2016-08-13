@@ -1,5 +1,4 @@
-<h1>Interests#new_learn</h1>
-<p>Which cuisine are you interested in learning?</p>
+<h4>Which cuisine are you interested in learning?</h4>
 
 <%= form_for(@interest) do |f| %>
   <% if @interest.errors.any? %>
@@ -15,15 +14,14 @@
 
   <form class="form-horizontal">
    <div class="form-group">
-     <label class="col-xs-6 col-md-4 control-label" for="inputTitle1">Name</label>
      <div class="col-md-8">
-       <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %>
+       <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %><br />
      </div>
-     <div class="form-group cant-see-me">
+     <div class="form-group">
        <%= f.number_field :user_id, value: current_user.id %>
-       <%= f.check_box :user_id, value: current_user.id %>
+       <%= f.check_box :learn, value: false %>
      </div></br>
-   </div>
+
   </form>
 
   <div class="action-group">

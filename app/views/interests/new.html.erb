@@ -1,0 +1,37 @@
+<h4>NEW INTERESTS</h4>
+
+<%= form_for(@interest) do |f| %>
+  <% if @interest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@interest.errors.count, "error") %> prohibited this interest from being saved:</h2>
+      <ul>
+      <% @interest.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <form class="form-horizontal">
+   <div class="form-group">
+     <div class="col-md-8">
+      <%= f.label "Which cuisines would you like to learn to cook?" %>
+      <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %>
+
+  %h3 Tasks
+  #tasks
+    = f.fields_for :interests do |interest|
+      = render 'task_fields', f: task
+    .links
+      = link_to_add_association 'add task', f, :tasks
+  = f.submit
+
+  .nested-fields
+  .field
+    = f.label :description
+    %br
+    = f.text_field :description
+  .field
+  <%= f.check_box :done %>
+  <%= f.label :done %>
+  <%= link_to_remove_association "remove interest", f %>

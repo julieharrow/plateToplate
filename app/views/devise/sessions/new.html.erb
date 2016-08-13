@@ -1,5 +1,5 @@
-<h2>Log in</h2>
-
+<h2>Welcome to PlateToPlate!</h2>
+<h4>Please log in: </h4>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -18,9 +18,11 @@
     </div>
   <% end -%>
 
+
+
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "btn btn-default" %>
   </div>
 <% end %>
-
+<br /><h5>If you do not have an account, sign up today! </h5>
 <%= render "devise/shared/links" %>

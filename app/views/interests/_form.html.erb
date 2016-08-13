@@ -1,0 +1,10 @@
+
+  <div class="nested-fields">
+    <div class="field">
+      <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %>
+    </div>
+    <%= f.check_box :done %>
+    <%= f.label :done %>
+    <%= link_to_remove_association "remove interest", f %>
+  </div>
+  
