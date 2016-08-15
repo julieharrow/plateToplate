@@ -1,17 +1,15 @@
 class InterestsController < ApplicationController
   def index
     @interests = Interest.all
+    @learn_interests = Interest.where(id:current_user.id, learn:true)
+    @teach_interests = Interest.where(id:current_user.id, teach:true)
   end
 
   def show
     @interest = Interest.find(params[:id])
   end
 
-  def learn_new
-    @interest = Interest.new
-  end
-
-  def teach_new
+  def new
     @interest = Interest.new
   end
 

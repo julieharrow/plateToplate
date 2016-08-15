@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get 'profiles/community/:id/community' => 'profiles#my_community'
 
   get 'interests/index' => "interests#index", as: :interests
-  get 'interests/learn_new' => "interests#learn_new"
-  get 'interests/teach_new' => "interests#teach_new"
+  get 'interests/new' => "interests#new"
   get 'interests/show'
   get 'interests/edit'
 

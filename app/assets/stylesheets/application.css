@@ -22,6 +22,21 @@
    padding: 0px; /* firefox bug fix */
  }
 
+ .nav-image {
+   height: 60px;
+   border-radius: 20%;
+ }
+
+ .profile-image {
+   height: 100px;
+   border-radius: 20%;
+ }
+
+ .thumb-image {
+   height: 80px;
+   border-radius: 20%;
+ }
+
  .navbar-brand>img {
    height: 100%;
    padding: 15px; /* firefox bug fix */

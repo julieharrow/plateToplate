@@ -2,6 +2,10 @@
 <p>Find me in app/views/interests/index.html.erb</p>
 
 
-<% @interests.each do |interest| %>
-  <%= "#{interest.user.name} wants to learn #{interest.user.wants_to_learn}"%>
+<% @learn_interests.each do |interest| %>
+  <%= "#{interest.user.name} wants to learn #{interest.cuisine.name}"%>
+<% end %>
+
+<% @teach_interests.each do |interest| %>
+  <%= "#{interest.user.name} wants to teach #{interest.cuisine.name}"%>
 <% end %>

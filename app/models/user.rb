@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :interests, reject_if: :all_blank, allow_destroy: true
 
   def self.wants_to_learn
-    interests.where(learn: true).cuisine
+    where(interest.learn: true).cuisine
   end
   def self.wants_to_teach
     interests.where(teach: true).cuisine

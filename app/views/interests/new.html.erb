@@ -1,4 +1,4 @@
-<h4>NEW INTERESTS</h4>
+<h4>Which cuisine are you interested in learning?</h4>
 
 <%= form_for(@interest) do |f| %>
   <% if @interest.errors.any? %>
@@ -15,23 +15,18 @@
   <form class="form-horizontal">
    <div class="form-group">
      <div class="col-md-8">
-      <%= f.label "Which cuisines would you like to learn to cook?" %>
-      <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %>
+       <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %><br />
+     </div>
+     <div class="form-group">
+       <%= f.number_field :user_id, value: current_user.id %>
+       <%= f.check_box :learn, value: false %>
+     </div></br>
 
-  %h3 Tasks
-  #tasks
-    = f.fields_for :interests do |interest|
-      = render 'task_fields', f: task
-    .links
-      = link_to_add_association 'add task', f, :tasks
-  = f.submit
+  </form>
 
-  .nested-fields
-  .field
-    = f.label :description
-    %br
-    = f.text_field :description
-  .field
-  <%= f.check_box :done %>
-  <%= f.label :done %>
-  <%= link_to_remove_association "remove interest", f %>
+  <div class="action-group">
+    <div class="col-md-6">
+      <%= f.submit "Submit", class:"btn btn-default"%>
+    </div>
+  </div>
+<% end %>

@@ -1,19 +1,46 @@
-<h1>Profiles#show</h1>
-
-<h3><%= @user.name %>'s Profile</h3> <!-- this was singular because we are looking at ONE user's profile !-->
-
-    <div class="panel heading">
-    <h4>My Story</h4>
-    <p><%= @user.my_story %></p>
+<h3><%= @user.name %>'s Profile</h3>
+  <div class="row">
+    <div class= "col-xs-3 panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <% if current_user.avatar.exists? %>
+            <%=image_tag(@user.avatar.url(:medium), class:"profile-image img-responsive")%>
+          <% else %>
+            <%=image_tag("default_avatar.png", class:"profile-image img-responsive")%>
+          <% end %>
+          <h3><%= @user.name %></h3>
+          <h5>Happy to Host: <%= @user.happy_to_host %></h5>
+          <h5>Happy to Travel: <%= @user.happy_to_travel %></h5>
+          <h5>Zip Code: <%= @user.zip_code %></h5>
+        </div>
+        <h5><p><%= @user.my_story %></p></h5>
+        <h5>Joined in <%= @user.created_at.strftime("%B %Y") %></h5>
+      </div>
     </div>
+    <div class= "col-xs-1"></div>
 
-  <h5><%= @user.happy_to_host %></h5>
-  <h5><p><%= @user.happy_to_travel %></p></h5>
-  <h5><%= @user.zip_code %></h5>
+    <div>
+      <% if @user==current_user %>
+        <%= link_to "Edit Profile", edit_user_registration_path, class:"btn btn-default pull-right" %>
+      <% end %>
+    </div>
+    <div class= "col-xs-7 panel panel-default">
+      <div class="panel-body">
 
-  <h4>User Recipes Link Practice</h4>
-  <div class="panel panel-primary">
-    <div class="panel heading">
-      <%= link_to @user.name, profile_path(@user), class:"btn btn-default" %>
+        <% @recipes.each do |recipe|%>
+        <% if recipe.pic.exists? %>
+          <%= link_to image_tag(recipe.pic.url, class:"thumb-image img-responsive"), recipe_path(recipe.id)%>
+        <% else %>
+          <%= link_to image_tag(recipe.pic.url, class:"thumb-image img-responsive"), recipe_path(recipe.id)%>
+        <% end %>
+        <strong><%= recipe.name %> </strong><small>
+        <br />
+        <br />
+        <%= recipe.instructions %>
+        <br />
+
+        <% end %>
+      </div>
+
     </div>
   </div>
