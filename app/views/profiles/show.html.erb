@@ -1,3 +1,11 @@
+<% @user.teach_cuisine.each do |thing| %>
+<%= thing.cuisine.name %>
+<% end %>
+
+<% @user.wants_to_learn.each do |thing| %>
+<%= thing.cuisine.name %>
+<% end %>
+
 <h3><%= @user.name %>'s Profile</h3>
   <div class="row">
     <div class= "col-xs-3 panel panel-default">
@@ -27,7 +35,7 @@
     <div class= "col-xs-7 panel panel-default">
       <div class="panel-body">
 
-        <% @recipes.each do |recipe|%>
+        <% @user.my_recipes.each do |recipe|%>
         <% if recipe.pic.exists? %>
           <%= link_to image_tag(recipe.pic.url, class:"thumb-image img-responsive"), recipe_path(recipe.id)%>
         <% else %>
