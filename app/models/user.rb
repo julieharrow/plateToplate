@@ -18,7 +18,4 @@ class User < ActiveRecord::Base
     interests.where(teach: true)
   end
 
-  def my_recipes
-    recipes
-  end
 end

@@ -40,24 +40,15 @@
     <%= f.label "Happy to Travel?" %>    <%= f.check_box :happy_to_travel %>
   </div>
 
-  <%= f.fields_for :interests do |interest| %>
-  <h1>I am making it inside the loop</h1>
-  <div class="nested-fields">
-    <div class="form-group">
-      <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %><br />
-      <%= f.number_field :user_id, value: current_user.id %>
-      <%= f.number_field :cuisine_id, value: cuisine.id %>
-      <%= f.check_box :learn, value: true %>
-    </div>
-    <div class="form-group">
-      <%= f.check_box :done %>
-      <%= f.label :done %>
-      <%= link_to_remove_association "remove interest", f %>
+  <div id="interest">
+    <%= f.fields_for :interests do |ff| %>
+      <%= render 'interest_fields', f: ff %>
+    <% end %>
+
+    <div class = "links">
+      <%= link_to_add_association 'Add Interest', f, :interests %>
     </div>
   </div>
-    <%= link_to_add_association 'Add Interest', f, :interests %>
-    <%= f.submit %>
-  <% end %>
 
   <div class="actions">
     <%= f.submit "Sign up", class: "btn btn-default"%>

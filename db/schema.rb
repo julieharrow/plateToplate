@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20160810163201) do
   create_table "interests", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "cuisine_id"
-    t.boolean  "teach"
-    t.boolean  "learn"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "teach",      default: false
+    t.boolean  "learn",      default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "recipes", force: :cascade do |t|
