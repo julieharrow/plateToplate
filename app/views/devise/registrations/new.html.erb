@@ -40,16 +40,6 @@
     <%= f.label "Happy to Travel?" %>    <%= f.check_box :happy_to_travel %>
   </div>
 
-  <div id="interest">
-    <%= f.fields_for :interests do |ff| %>
-      <%= render 'interest_fields', f: ff %>
-    <% end %>
-
-    <div class = "links">
-      <%= link_to_add_association 'Add Interest', f, :interests %>
-    </div>
-  </div>
-
   <div class="actions">
     <%= f.submit "Sign up", class: "btn btn-default"%>
   </div>

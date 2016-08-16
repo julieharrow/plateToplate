@@ -1,0 +1,10 @@
+<h1>i made it to the interest partial</h1>
+
+<div class="nested-fields">
+  <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :name) %><br />
+  <%= f.number_field :user_id, value: current_user.id, class: "cant-see-me" %>
+  <%= f.label "Do you want to learn or Teach?"%>
+  <%= f.check_box :learn %>
+  <%= f.check_box :teach %>
+  <%= link_to_remove_association "remove interest", f %>
+</div>

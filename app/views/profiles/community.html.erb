@@ -1,9 +1,16 @@
 
-<%= @user_want_learn %>
+<h1>For those cuisines that you want to learn, here is your community of teachers!</h1>
+<% @user.wants_to_learn.each do |learn_interest| %>
+  <%= <h3>learn_interest.cuisine.name</h3> %>
+  <% learn_interest.cuisine.teachers.each do |teach_interest| %>
+    <%= <h5>link_to teach_interest.user.name profile_path(teach_interest.user.id)</h5> %>
+  <% end %>
+<% end %>
 
-<%= @user.email %>
-
-<!--
-<#% @possible_instructors.each do |interest|%>
-  <#%= link_to interest.user.name, profile_path(interest.user.name) %>
-<#% end %> -->
+<h1>For those cuisines that you are able to teach, here is your community of students!</h1>
+<% @user.wants_to_teach.each do |teach_interest| %>
+  <%= <h3>teach_interest.cuisine.name</h3> %>
+  <% teach_interest.cuisine.students.each do |learn_interest| %>
+    <%= <h5>link_to learn_interest.user.name profile_path(learn_interest.user.id)</h5> %>
+  <% end %>
+<% end %>
