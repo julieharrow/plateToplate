@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'profiles#index'
   get 'profiles/:id' => 'profiles#show', as: :profile
-  get 'profiles/community/:id/community' => 'profiles#community'
+  get 'community' => 'profiles#community'
 
   get 'interests' => "interests#index"
   get 'interests/new' => "interests#new"
@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   get 'cuisines/edit'
 
   resources :recipes
-  devise_for :users, controllers:{registrations: 'users/registrations'}
+  devise_for :users, controllers:{registrations: 'registrations'}
 
 end

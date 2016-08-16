@@ -8,10 +8,6 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def teachers
-
-  end
-
   def community
     @user = current_user
   end

@@ -1,6 +1,6 @@
 <h1>What are your interests?</h1>
 
-<%= form_for(@interest) do |f| %>
+<%= form_for(@user, url: user_registration_path) do |f| %>
   <div id="interest">
     <%= f.fields_for :interests do |ff| %>
       <%= render 'interest_fields', f: ff %>
@@ -10,4 +10,14 @@
       <%= link_to_add_association 'Add Interest', f, :interests %>
     </div>
   </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+  
 <% end %>
