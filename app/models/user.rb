@@ -10,10 +10,15 @@ class User < ActiveRecord::Base
   has_many :interests
   accepts_nested_attributes_for :interests, reject_if: :all_blank, allow_destroy: true
 
-  def self.wants_to_learn
-    where(interest.learn: true).cuisine
+  def wants_to_learn
+    interests.where(learn: true)
   end
-  def self.wants_to_teach
-    interests.where(teach: true).cuisine
+
+  def wants_to_teach
+    interests.where(teach: true)
+  end
+
+  def my_recipes
+    recipes
   end
 end

@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   root 'profiles#index'
   get 'profiles/community/:id/community' => 'profiles#my_community'
 
-  get 'interests/index' => "interests#index", as: :interests
+  get 'interests' => "interests#index"
   get 'interests/new' => "interests#new"
-  get 'interests/show'
-  get 'interests/edit'
+  get 'interests/:id' => "interests#show", as: :interest
+  get 'interests/:id/edit' => "interests#edit", as: :edit_interest
+  post 'interests' => 'interests#create'
 
   get 'cuisines/index'
   get 'cuisines/new'
