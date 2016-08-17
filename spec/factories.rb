@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :ingredient do
+    name "MyString"
+    quantity "MyString"
+  end
   factory :user, class: User do
     sequence(:email) {|num| "email##{num}@email.com"}
     sequence(name) {|num| "User##{num}First" "User##{num}Last"}
