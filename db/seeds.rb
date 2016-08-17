@@ -40,7 +40,6 @@ end
 100.times do |n|
   email = "email##{n}@email.com"
   User.create(name: Faker::Internet.user_name,
-              zip_code: Faker::Address.zip_code,
               my_story: Faker::Hipster.paragraph,
               password: 'password',
               password_confirmation: 'password',
@@ -55,7 +54,8 @@ end
     recipe_name = "#{cuisine} Recipe"
     Recipe.create(user_id: Faker::Number.between(1, 100),
                 cuisine_id: cuisines.index(cuisine)+1,
-                ingredients: Faker::Hipster.words(10, true, true),
+                ingredients: Faker::Lorem.words(10, true, true),
+                instructions: Faker::Lorem.sentences(6, true),
                 description: Faker::Hipster.paragraph(2, false, 4),
                 expected_time: Faker::Number.number(2),
                 name: recipe_name)
