@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     super
-    @user_ip = request.location
+    @user_ip = "123,45,678"
   end
 
   # POST /resource
