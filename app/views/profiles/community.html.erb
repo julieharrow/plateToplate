@@ -1,16 +1,46 @@
 
-<h1>For those cuisines that you want to learn, here is your community of teachers!</h1>
+<h3>Learn how to make these cuisines from your community of teachers!</h3>
 <% @user.wants_to_learn.each do |learn_interest| %>
-  <%= <h3>learn_interest.cuisine.name</h3> %>
-  <% learn_interest.cuisine.teachers.each do |teach_interest| %>
-    <%= <h5>link_to teach_interest.user.name profile_path(teach_interest.user.id)</h5> %>
-  <% end %>
+  <h5><%= learn_interest.cuisine.name %> </h5>
+  <div class="row">
+    <% learn_interest.cuisine.teachers.each do |teach_interest| %>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2><%= link_to teach_interest.user.name, profile_path(teach_interest.user.id) %></h2>
+            <div>
+            <% if teach_interest.user.avatar_file_name != nil %>
+              <%= image_tag teach_interest.user.avatar.url(:thumb) %>
+            <% else %>
+              <%= image_tag("default_avatar.png", class:"img-rounded img-responsive avatar-thumbs")%>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
-<h1>For those cuisines that you are able to teach, here is your community of students!</h1>
+<h3>For those cuisines that you are able to teach, here are your students!</h3>
 <% @user.wants_to_teach.each do |teach_interest| %>
-  <%= <h3>teach_interest.cuisine.name</h3> %>
-  <% teach_interest.cuisine.students.each do |learn_interest| %>
-    <%= <h5>link_to learn_interest.user.name profile_path(learn_interest.user.id)</h5> %>
-  <% end %>
+  <h5><%= teach_interest.cuisine.name %></h5>
+  <div class="row">
+    <% teach_interest.cuisine.teachers.each do |learn_interest| %>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h2><%= link_to learn_interest.user.name, profile_path(learn_interest.user.id) %></h2>
+            <div>
+            <% if learn_interest.user.avatar_file_name != nil %>
+              <%= image_tag learn_interest.user.avatar.url(:thumb) %>
+            <% else %>
+              <%= image_tag("default_avatar.png", class:"img-rounded img-responsive avatar-thumbs")%>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>

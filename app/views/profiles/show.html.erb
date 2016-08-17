@@ -1,12 +1,7 @@
-<% @user.wants_to_teach.each do |thing| %>
-<%= thing.cuisine.name %>
-<% end %>
 
-<% @user.wants_to_learn.each do |thing| %>
-<%= thing.cuisine.name %>
-<% end %>
 
-<h3><%= @user.name %>'s Profile</h3>
+
+
   <div class="row">
     <div class= "col-xs-3 panel panel-default">
       <div class="panel-body">
@@ -17,38 +12,57 @@
             <%=image_tag("default_avatar.png", class:"profile-image img-responsive")%>
           <% end %>
           <h3><%= @user.name %></h3>
-          <h5>Happy to Host: <%= @user.happy_to_host %></h5>
-          <h5>Happy to Travel: <%= @user.happy_to_travel %></h5>
-          <h5>Zip Code: <%= @user.zip_code %></h5>
+          <ul> <%= "wants to learn how to cook..." %>
+            <% @user.wants_to_learn.each do |thing| %>
+              <li>
+                <%= thing.cuisine.name %>
+              </li>
+            <% end %>
+          </ul>
+
+          <ul> <%= "can teach you how to cook..." %>
+            <% @user.wants_to_teach.each do |thing| %>
+              <li>
+                <%= thing.cuisine.name %>
+              </li>
+            <% end %>
+          </ul>
         </div>
         <h5><p><%= @user.my_story %></p></h5>
         <h5>Joined in <%= @user.created_at.strftime("%B %Y") %></h5>
+        <% if @user.happy_to_host && @user.happy_to_travel %>
+          <p class="italicize">Happy to host and to travel!</p>
+        <% elsif @user.happy_to_host %>
+          <p class="italicize">Happy to host!</p>
+        <% elsif @user.happy_to_travel %>
+          <p class="italicize">Happy to travel!</p>
+        <% end %>
+      </div>
+      <div>
+        <% if @user==current_user %>
+          <%= link_to "Edit Profile", edit_user_registration_path, class:"btn btn-default" %>
+        <% end %>
       </div>
     </div>
     <div class= "col-xs-1"></div>
 
     <div>
-      <% if @user==current_user %>
-        <%= link_to "Edit Profile", edit_user_registration_path, class:"btn btn-default pull-right" %>
+      <% @user.recipes.each do |recipe|%>
+        <div class= "col-xs-8 panel panel-default pull-right">
+          <div class="panel-body">
+            <div class="col-md-4">
+              <strong><%= recipe.name %> </strong>
+              <% if recipe.pic.exists? %>
+                <%= link_to image_tag(recipe.pic.url, class:"thumb-image img-responsive"), recipe_path(recipe.id)%>
+              <% else %>
+                <%= link_to "Check it out!", recipe_path(recipe.id)%>
+              <% end %>
+            </div>
+            <div class="col-md-8 italicize">
+              <%= recipe.description %>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </div>
-    <div class= "col-xs-7 panel panel-default">
-      <div class="panel-body">
-
-        <% @user.recipes.each do |recipe|%>
-        <% if recipe.pic.exists? %>
-          <%= link_to image_tag(recipe.pic.url, class:"thumb-image img-responsive"), recipe_path(recipe.id)%>
-        <% else %>
-          <%= link_to image_tag(recipe.pic.url, class:"thumb-image img-responsive"), recipe_path(recipe.id)%>
-        <% end %>
-        <strong><%= recipe.name %> </strong><small>
-        <br />
-        <br />
-        <%= recipe.instructions %>
-        <br />
-
-        <% end %>
-      </div>
-
     </div>
   </div>

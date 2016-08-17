@@ -2,10 +2,20 @@ class RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
+  def remote_ip
+    if request.remote_ip == '127.0.0.1'
+      # Hard coded remote address
+      '123.45.67.89'
+    else
+      request.remote_ip
+    end
+  end
+
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+    @user.ip_address = remote_ip()
+  end
 
   # POST /resource
   # def create

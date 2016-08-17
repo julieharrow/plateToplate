@@ -46,6 +46,10 @@
    background: #EFD9CE;
  }
 
+.italicize {
+  font-style: italic;
+}
+
  .bd-example {
     position: relative;
     margin: 1rem -1rem;
