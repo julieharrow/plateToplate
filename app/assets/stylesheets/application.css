@@ -39,7 +39,7 @@
 
  .navbar-brand>img {
    height: 100%;
-   padding: 15px; /* firefox bug fix */
+   padding: 15px;
    width: auto;
  }
 
@@ -51,9 +51,9 @@
   font-style: italic;
 }
 
- .bd-example {
-    position: relative;
-    margin: 1rem -1rem;
-    padding: 20px;
-    border: solid #f7f7f9;
+.bd-example {
+  position:relative;
+  margin: 1rem -1rem;
+  padding: 20px;
+  border: solid #f7f7f9;
  }
