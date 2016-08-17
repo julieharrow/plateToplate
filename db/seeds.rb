@@ -6,106 +6,65 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Cuisine.create(name: 'American')
-Cuisine.create(name: 'Asian')
-Cuisine.create(name: 'Barbecue')
-Cuisine.create(name: 'Cajun & Creole')
-Cuisine.create(name: 'Chinese')
-Cuisine.create(name: 'Cuban')
-Cuisine.create(name: 'English')
-Cuisine.create(name: 'French')
-Cuisine.create(name: 'German')
-Cuisine.create(name: 'Greek')
-Cuisine.create(name: 'Hawaiian')
-Cuisine.create(name: 'Hungarian')
-Cuisine.create(name: 'Indian')
-Cuisine.create(name: 'Italian')
-Cuisine.create(name: 'Japanese')
-Cuisine.create(name: 'Mediterranean')
-Cuisine.create(name: 'Mexican')
-Cuisine.create(name: 'Moroccan')
-Cuisine.create(name: 'Portuguese')
-Cuisine.create(name: 'Southern & Soul Food')
-Cuisine.create(name: 'Southwestern')
-Cuisine.create(name: 'Spanish')
-Cuisine.create(name: 'Swedish')
-Cuisine.create(name: 'Thai')
+cuisines = [
+"American",
+"Asian",
+"Barbecue",
+"Cajun & Creole",
+"Chinese",
+"Cuban",
+"English",
+"French",
+"German",
+"Greek",
+"Hawaiian",
+"Hungarian",
+"Indian",
+"Irish",
+"Italian",
+"Japanese",
+"Mediterranean",
+"Mexican",
+"Moroccan",
+"Portuguese",
+"Southern & Soul Food",
+"Southwestern",
+"Spanish",
+"Swedish",
+"Thai"]
 
-User.create(email: 'jh_email@email.com', name: 'Julie Harrow', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'ej_email@email.com', name: 'Emily Johnson', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'rc_email@email.com', name: 'Ralph Caprio', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'sh_email@email.com', name: 'Stella Haprio', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'eh_email@email.com', name: 'Elizabeth Harrow', zip_code: 27705, happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'lh_email@email.com', name: 'Laura Harjes', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'tg_email@email.com', name: 'Tracy Gronenthal', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'ld_email@email.com', name: 'Lois Delia', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'ld_email@email.com', name: 'Lois Delia', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'ld_email@email.com', name: 'Lois Delia', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'peter_email@email.com', name: 'Peter', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'baker_email@email.com', name: 'Baker', zip_code: 27705, happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'eric_email@email.com', name: 'Eric', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'lukas_email@email.com', name: 'Lukas', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
-User.create(email: 'walid_email@email.com', name: 'Walid', zip_code: 27705 , happy_to_host: true, happy_to_travel: true, my_story: 'All about me, yeah this is my bio, b b b b b bio!', password: 'password', password_confirmation: 'password')
+cuisines.each do |cuisine|
+  Cuisine.create(name: cuisine)
+end
 
-Recipe.create(user_id: 1, cuisine_id: 1, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 1, cuisine_id: 2, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 2, cuisine_id: 3, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 2, cuisine_id: 4, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 3, cuisine_id: 5, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 3, cuisine_id: 6, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 4, cuisine_id: 7, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 4, cuisine_id: 8, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 5, cuisine_id: 9, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 5, cuisine_id: 10, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 6, cuisine_id: 11, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 6, cuisine_id: 12, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 7, cuisine_id: 13, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 7, cuisine_id: 14, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 8, cuisine_id: 15, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 8, cuisine_id: 16, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 9, cuisine_id: 17, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 9, cuisine_id: 18, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 10, cuisine_id: 19, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 10, cuisine_id: 20, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 11, cuisine_id: 21, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 11, cuisine_id: 22, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 12, cuisine_id: 23, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 12, cuisine_id: 24, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 13, cuisine_id: 1, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 13, cuisine_id: 2, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 14, cuisine_id: 3, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 14, cuisine_id: 4, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 15, cuisine_id: 5, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
-Recipe.create(user_id: 15, cuisine_id: 6, name: "Recipe 1", ingredients: "Ingredients listed out in block text", instructions: "Instructions written in paragraph format", expected_time: "25 minutes")
+100.times do |n|
+  email = "email##{n}@email.com"
+  User.create(name: Faker::Internet.user_name,
+              zip_code: Faker::Address.zip_code,
+              my_story: Faker::Hipster.paragraph,
+              password: 'password',
+              password_confirmation: 'password',
+              happy_to_host: Faker::Boolean.boolean(0.6),
+              happy_to_travel: Faker::Boolean.boolean(0.6),
+              ip_address: Faker::Internet.ip_v4_address,
+              email: email)
+end
 
+5.times do
+  cuisines.each do |cuisine|
+    recipe_name = "#{cuisine} Recipe"
+    Recipe.create(user_id: Faker::Number.between(1, 100),
+                cuisine_id: cuisines.index(cuisine)+1,
+                ingredients: Faker::Hipster.words(10, true, true),
+                description: Faker::Hipster.paragraph(2, false, 4),
+                expected_time: Faker::Number.number(2),
+                name: recipe_name)
+  end
+end
 
-Interest.create(user_id: 1, cuisine_id: 1, learn: true, teach: false)
-Interest.create(user_id: 1, cuisine_id: 2, learn: false, teach: true)
-Interest.create(user_id: 2, cuisine_id: 3, learn: true, teach: false)
-Interest.create(user_id: 2, cuisine_id: 4, learn: false, teach: true)
-Interest.create(user_id: 3, cuisine_id: 5, learn: true, teach: false)
-Interest.create(user_id: 3, cuisine_id: 6, learn: false, teach: true)
-Interest.create(user_id: 4, cuisine_id: 7, learn: true, teach: false)
-Interest.create(user_id: 4, cuisine_id: 8, learn: false, teach: true)
-Interest.create(user_id: 5, cuisine_id: 9, learn: true, teach: false)
-Interest.create(user_id: 5, cuisine_id: 10, learn: false, teach: true)
-Interest.create(user_id: 6, cuisine_id: 11, learn: true, teach: false)
-Interest.create(user_id: 6, cuisine_id: 12, learn: false, teach: true)
-Interest.create(user_id: 7, cuisine_id: 13, learn: true, teach: false)
-Interest.create(user_id: 7, cuisine_id: 14, learn: false, teach: true)
-Interest.create(user_id: 8, cuisine_id: 15, learn: true, teach: false)
-Interest.create(user_id: 8, cuisine_id: 16, learn: false, teach: true)
-Interest.create(user_id: 9, cuisine_id: 17, learn: true, teach: false)
-Interest.create(user_id: 9, cuisine_id: 18, learn: false, teach: true)
-Interest.create(user_id: 10, cuisine_id: 19, learn: true, teach: false)
-Interest.create(user_id: 10, cuisine_id: 20, learn: false, teach: true)
-Interest.create(user_id: 11, cuisine_id: 21, learn: true, teach: false)
-Interest.create(user_id: 11, cuisine_id: 22, learn: false, teach: true)
-Interest.create(user_id: 12, cuisine_id: 23, learn: true, teach: false)
-Interest.create(user_id: 12, cuisine_id: 24, learn: false, teach: true)
-Interest.create(user_id: 13, cuisine_id: 1, learn: true, teach: false)
-Interest.create(user_id: 13, cuisine_id: 2, learn: false, teach: true)
-Interest.create(user_id: 14, cuisine_id: 3, learn: true, teach: false)
-Interest.create(user_id: 14, cuisine_id: 4, learn: false, teach: true)
-Interest.create(user_id: 15, cuisine_id: 5, learn: true, teach: false)
-Interest.create(user_id: 15, cuisine_id: 6, learn: false, teach: true)
+300.times do
+  Interest.create(user_id: Faker::Number.between(1, 100),
+                  cuisine_id: Faker::Number.between(1, 24),
+                  learn: Faker::Boolean.boolean(0.5),
+                  teach: Faker::Boolean.boolean(0.5))
+end
