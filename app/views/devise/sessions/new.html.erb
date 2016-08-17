@@ -1,26 +1,57 @@
-<h2>Welcome to PlateToPlate!</h2>
-<h4>Please log in: </h4>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
+<div class="jumbotron"><h2>EverybodyEATS</h2>
+  <h3><em>Have a Meal at Someone Else's Table</em></h3>
+  <h4><em>Join.Share.Learn.Eat.</em></h4></div>
+<body class="container sessions">
+  <!--<h2>EverybodyEATS</h2>
+  <h3><em>Have a Meal at Someone Else's Table</em></h3>!-->
+<!--<body class="container sessions">!-->
+  <div class="border-form-div">
+  <h2>Log In</h2>
+  
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.email_field :email, :autofocus => true, :placeholder => 'Email Address' %>
+    <%= f.password_field :password, :placeholder => 'Password' %>
+    <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
-  <% end -%>
+    <% end -%>
+  <%= f.submit "Log In", :class =>'btn btn-success' %>
+  <%#= f.submit "Sign Up", :class =>'btn btn-warning' %>
+<% end %>
+<h5>If you do not have an account, sign up today!</h5>
+<%= render "devise/shared/links" %>
+</div>
+
+<!--<div class="col-sm-8 col-md-8 col-md-offset-4" style="min-width: 270px;">
+<h4>Please log in: </h4>
+
+<%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <div class="field">
+    <%#= f.label :email %><br />
+    <%#= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%#= f.label :password %><br />
+    <%#= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <%# if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%#= f.check_box :remember_me %>
+      <%#= f.label :remember_me %>
+    </div>
+  <%# end -%>
 
   <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-default" %>
+    <%#= f.submit "Log in", class: "btn btn-default" %>
   </div>
-<% end %>
+<%# end %>
 <br /><h5>If you do not have an account, sign up today! </h5>
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>
+
+</div>!-->
+</body>

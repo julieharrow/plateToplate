@@ -3,7 +3,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-
     <div class="field form-group pull-right">
       <%= f.label "Provide a photo for your profile!" %> <br />
       <%= f.file_field :avatar %>
@@ -19,10 +18,6 @@
 
     <div class="form-group">
       <%= f.text_area :my_story, placeholder: "Tell our community a little bit about youreself!" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.number_field :zip_code, placeholder: "Zip Code" %>
     </div>
 
     <p>We know that you will connect with so many passionate chefs through PlateToPlate.<br />Let your connections know if you'd be open to hosting a 'cooking date' or if you'd enjoy traveling for one!</p>

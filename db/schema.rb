@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20160817022648) do
   create_table "interests", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "cuisine_id"
-    t.boolean  "teach",      default: false
-    t.boolean  "learn",      default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "teach"
+    t.boolean  "learn"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 20160817022648) do
     t.text     "description"
   end
 
+  create_table "user_cuisines", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "cuisine_id"
+    t.boolean  "teach"
+    t.boolean  "learn"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -65,7 +74,9 @@ ActiveRecord::Schema.define(version: 20160817022648) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.integer  "zip_code"
+    t.string   "location"
+    t.string   "i_can_teach_you"
+    t.string   "i_want_to_learn"
     t.boolean  "happy_to_host"
     t.boolean  "happy_to_travel"
     t.text     "my_story"
