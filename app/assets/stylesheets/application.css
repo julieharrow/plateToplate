@@ -42,6 +42,7 @@
    padding: 15px; /* firefox bug fix */
    width: auto;
  }
+
  body {
    background: #EFD9CE;
  }
@@ -54,5 +55,5 @@
     position: relative;
     margin: 1rem -1rem;
     padding: 20px;
-    border: solid #f7f7f9 ;
+    border: solid #f7f7f9;
  }
