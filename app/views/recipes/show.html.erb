@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 <div class = "container">
 
-<h4>Shared Recipe</h4>
+<h4>Recipe</h4>
 <div class="panel panel-primary">
   <div class="panel heading">
     <%= @recipe.name %>
   </div>
-</div> <!-- remove if you want other stuff on this panel -->
+</div>
 
-<h4>Expected Time</h4>
+<h4>Description</h4>
 <div class="panel panel-primary">
   <div class="panel heading">
-    <%= @recipe.expected_time %>
+    <%= @recipe.description %>
   </div>
 </div>
 
@@ -20,17 +20,30 @@
   <div class="panel heading">
     <%= @recipe.ingredients %>
   </div>
-</div> <!-- same thing here-->
+</div>
 
 <h4>Instructions</h4>
 <div class="panel panel-primary">
   <div class="panel heading">
   <%= @recipe.instructions %>
   </div>
-</div><!--3rd panel without a 'panel-body'-->
+</div>
+
+<h4>Expected Time</h4>
+<div class="panel panel-primary">
+  <div class="panel heading">
+    <%= @recipe.expected_time %> minutes
+  </div>
+</div>
 
 <% if @recipe.pic_file_name != nil %>
-      <%= image_tag @recipe.pic.url(:medium) %>
-   <% end %>
-</div>
+  <%= image_tag @recipe.pic.url(:medium) %>
+<% end %>
+</div> <br />
+
+<% if @recipe.user.id == current_user.id %>
+  <%= link_to 'Edit Recipe', edit_recipe_path(@recipe), class:"btn btn-default" %>
+  <%= link_to 'Destroy', recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+<% end %>
+
 <%= link_to 'Back', recipes_path, class:"btn btn-default" %>

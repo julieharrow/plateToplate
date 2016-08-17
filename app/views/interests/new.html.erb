@@ -7,8 +7,9 @@
     <% end %>
 
     <div class = "links">
-      <%= link_to_add_association 'Add Interest', f, :interests %>
-    </div>
+      <%= f.label "Which cuisines are you interested in either learning from OR teaching to others in your community?" %>
+      <%= link_to_add_association 'Add Cuisine', f, :interests %>
+    </div><br />
   </div>
 
   <div class="field">
@@ -19,5 +20,5 @@
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
-  
+
 <% end %>

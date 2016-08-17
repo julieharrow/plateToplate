@@ -6,27 +6,65 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Cuisine.create(name: 'American')
-Cuisine.create(name: 'Asian')
-Cuisine.create(name: 'Barbecue')
-Cuisine.create(name: 'Cajun & Creole')
-Cuisine.create(name: 'Chinese')
-Cuisine.create(name: 'Cuban')
-Cuisine.create(name: 'English')
-Cuisine.create(name: 'French')
-Cuisine.create(name: 'German')
-Cuisine.create(name: 'Greek')
-Cuisine.create(name: 'Hawaiian')
-Cuisine.create(name: 'Hungarian')
-Cuisine.create(name: 'Indian')
-Cuisine.create(name: 'Italian')
-Cuisine.create(name: 'Japanese')
-Cuisine.create(name: 'Mediterranean')
-Cuisine.create(name: 'Mexican')
-Cuisine.create(name: 'Moroccan')
-Cuisine.create(name: 'Portuguese')
-Cuisine.create(name: 'Southern & Soul Food')
-Cuisine.create(name: 'Southwestern')
-Cuisine.create(name: 'Spanish')
-Cuisine.create(name: 'Swedish')
-Cuisine.create(name: 'Thai')
+cuisines = [
+"American",
+"Asian",
+"Barbecue",
+"Cajun & Creole",
+"Chinese",
+"Cuban",
+"English",
+"French",
+"German",
+"Greek",
+"Hawaiian",
+"Hungarian",
+"Indian",
+"Irish",
+"Italian",
+"Japanese",
+"Mediterranean",
+"Mexican",
+"Moroccan",
+"Portuguese",
+"Southern & Soul Food",
+"Southwestern",
+"Spanish",
+"Swedish",
+"Thai"]
+
+cuisines.each do |cuisine|
+  Cuisine.create(name: cuisine)
+end
+
+100.times do |n|
+  email = "email##{n}@email.com"
+  User.create(name: Faker::Internet.user_name,
+              my_story: Faker::Hipster.paragraph,
+              password: 'password',
+              password_confirmation: 'password',
+              happy_to_host: Faker::Boolean.boolean(0.6),
+              happy_to_travel: Faker::Boolean.boolean(0.6),
+              ip_address: Faker::Internet.ip_v4_address,
+              email: email)
+end
+
+5.times do
+  cuisines.each do |cuisine|
+    recipe_name = "#{cuisine} Recipe"
+    Recipe.create(user_id: Faker::Number.between(1, 100),
+                cuisine_id: cuisines.index(cuisine)+1,
+                ingredients: Faker::Lorem.words(10, true, true),
+                instructions: Faker::Lorem.sentences(6, true),
+                description: Faker::Hipster.paragraph(2, false, 4),
+                expected_time: Faker::Number.number(2),
+                name: recipe_name)
+  end
+end
+
+300.times do
+  Interest.create(user_id: Faker::Number.between(1, 100),
+                  cuisine_id: Faker::Number.between(1, 24),
+                  learn: Faker::Boolean.boolean(0.5),
+                  teach: Faker::Boolean.boolean(0.5))
+end

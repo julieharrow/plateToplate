@@ -1,6 +1,11 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    if params[:cuisine_id] == nil
+      @recipes = Recipe.all
+    else
+      @recipes = Recipe.where(cuisine_id: params[:cuisine_id])
+    end
+    @recipe_cuisines = Recipe.select(:cuisine_id).order(:cuisine_id).distinct
   end
 
   def show
@@ -12,6 +17,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
   end
 
   def create
@@ -24,10 +30,11 @@ class RecipesController < ApplicationController
   end
 
   def update
+    @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      format.html {redirect_to @recipe, notice: "Recipe was successfully updated."}
+      redirect_to @recipe
     else
-      format.html {render :edit}
+      render :edit
     end
   end
 
@@ -39,7 +46,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name,:ingredients,:instructions,:expected_time,:user_id,:cuisine_id,:pic)
+    params.require(:recipe).permit(:name,:ingredients,:instructions,:expected_time,:user_id,:cuisine_id,:description,:pic)
   end
 
 end

@@ -1,27 +1,30 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
 <p id="notice"><%= notice %></p>
 
-<% @recipes.each do |recipe| %>
-  <div class = "container">
-    <div class="bd-example">
-      <div class="card">
-       <img class="card-img-top" src="..." alt="Card image cap">
-       <div class="card-block">
-         <h4 class="card-title">Shared Recipe</h4>
-         <%= link_to recipe.name, recipe_path(recipe), class:"btn btn-primary" %>
-         <h5>Expected Time (in minutes)</h5>
-         <%= recipe.expected_time %>
-         <h5>Ingredients</h5>
-         <%= recipe.ingredients %>
-         <h5>Instructions</h5>
-         <%= recipe.instructions %>
-       </div>
-     </div>
-     <% if recipe.pic_file_name != nil %>
-        <%= image_tag recipe.pic.url(:medium) %>
-     <% end %>
-    </div>
-  </div>
+<ul class="nav nav-pills" role="tablist">
+  <li><%= link_to "All Recipes",recipes_path %></li>
+  <% @recipe_cuisines.each do |c| %>
+  <li> <%= link_to c.cuisine.name, recipes_path(cuisine_id: c.cuisine_id) %> </li>
+  <% end %>
+</ul>
 
-<% end %>
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h2><%= link_to recipe.name, edit_recipe_path(recipe) %></h2>
+          <p>Expected Time: <%= recipe.expected_time %> Minutes</p>
+          <p>Ingredients: <%= recipe.ingredients %></p>
+          <p>Instructions: <%= recipe.instructions %></p>
+          <div>
+          <% if recipe.pic_file_name != nil %>
+            <%= image_tag recipe.pic.url(:medium) %>
+          <% else %>
+            <%= image_tag("default_recipe_pic.png", class:"img-rounded img-responsive avatar-thumbs")%>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
