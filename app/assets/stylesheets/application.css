@@ -14,12 +14,21 @@
  *= require_self
  */
 
+body {
+  font-family: 'Cabin', sans-serif;
+  /*font-family: 'Signika', sans-serif;*/
+}
  .cant-see-me {
    display:none;
  }
 
  .navbar-brand {
-   padding: 0px; /* firefox bug fix */
+   padding: 0px;
+   height:100px;
+ }
+
+ .cuisine-types {
+   font-size: 14px;
  }
 
  .nav-image {
@@ -39,12 +48,12 @@
 
  .navbar-brand>img {
    height: 100%;
-   padding: 15px;
+   padding: 5px;
    width: auto;
  }
- 
+
  body {
-   background: #EFD9CE;
+   background: rgba(175,196,65,.75);
  }
 
 .italicize {
@@ -58,12 +67,21 @@
   border: solid #f7f7f9;
  }
 
-.jumbotron { background: rgba(255,255,255,0.6);
+.jumbotron {
+  background: rgba(255,255,255,0.75);
+}
+
+.navbar {
+  background: rgba(255,255,255,1);
+}
+
+.nav {
+  font-size: 20px;
 }
 
 /* User sign in and sign forms. */
 .border-form-div {
-  background: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.75);
   max-width: 300px;
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
@@ -90,6 +108,8 @@
         vertical-align: middle;
         border: 1px solid black;
 }
-body.sessions {background: url("background_sign_in.jpg") no-repeat;
-    background-size: cover;
+
+body.sessions {
+  background: url("./backgrounds/food_table.jpg") no-repeat;
+  background-size: cover;
 }

@@ -33,6 +33,8 @@ cuisines = [
 "Swedish",
 "Thai"]
 
+
+
 cuisines.each do |cuisine|
   Cuisine.create(name: cuisine)
 end
@@ -54,7 +56,7 @@ end
     recipe_name = "#{cuisine} Recipe"
     Recipe.create(user_id: Faker::Number.between(1, 100),
                 cuisine_id: cuisines.index(cuisine)+1,
-                ingredients: Faker::Lorem.words(10, true, true),
+                ingredients: Faker::Lorem.words(10),
                 instructions: Faker::Lorem.sentences(6, true),
                 description: Faker::Hipster.paragraph(2, false, 4),
                 expected_time: Faker::Number.number(2),
@@ -62,9 +64,24 @@ end
   end
 end
 
-300.times do
-  Interest.create(user_id: Faker::Number.between(1, 100),
+100.times do |n|
+  id = n
+  Interest.create(user_id: id,
                   cuisine_id: Faker::Number.between(1, 24),
                   learn: Faker::Boolean.boolean(0.5),
                   teach: Faker::Boolean.boolean(0.5))
+end
+100.times do |n|
+  id = n
+  Interest.create(user_id: id,
+                  cuisine_id: Faker::Number.between(1, 24),
+                  learn: Faker::Boolean.boolean(1),
+                  teach: Faker::Boolean.boolean(0))
+end
+100.times do |n|
+  id = n
+  Interest.create(user_id: id,
+                  cuisine_id: Faker::Number.between(1, 24),
+                  learn: Faker::Boolean.boolean(0),
+                  teach: Faker::Boolean.boolean(1))
 end

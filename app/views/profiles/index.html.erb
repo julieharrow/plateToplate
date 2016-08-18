@@ -1,4 +1,17 @@
-<h1>All Users<h1/>
+<h1>EverybodyEATs<h1/>
+<h3>...and we are part of everybody!<h3/>
+
 <% @users.each do |user| %>
-  <%= link_to user.name, profile_path(user) %> <br />
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <% if user.avatar != nil %>
+        <%= image_tag user.avatar.url(:thumb), class:"nav-image" %>
+      <% else %>
+        <%= image_tag("avatar.png", class:"img-rounded img-responsive avatar-thumbs")%>
+      <% end %>
+      <%= link_to user.name, profile_path(user) %></div>
+    <div class="panel-body">
+      <p><%= user.my_story %></p>
+    </div>
+  </div>
 <% end %>

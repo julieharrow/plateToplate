@@ -1,9 +1,15 @@
-<h2>Sign up for a PlateToPlate account!</h2>
+<div class="jumbotron">
+  <h1>EverybodyEATS</h1>
+  <h3><em>Have a Meal at Someone Else's Table</em></h3>
+  <h5>Join.Share.Learn.Eat.</h5>
+</div>
+<h2>Join our community!</h2>
  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field form-group pull-right">
+  <div class="field form-group pull-right btn btn-default">
     <%= f.label "Provide a photo for your profile!" %> <br />
+    <%= image_tag "avatar.png", class:"profile-image" %>
     <%= f.file_field :avatar %>
   </div></br>
 
@@ -28,19 +34,24 @@
   </div>
 
   <div class="form-group">
-    <%= f.text_field :ip_address, value: request.location.ip %>
+    <%= f.text_field :ip_address, value: request.location.ip, class:"cant-see-me" %>
   </div>
 
-  <p>We know that you will connect with so many passionate chefs through PlateToPlate.<br />Let your connections know if you'd be open to hosting a 'cooking date' or if you'd enjoy traveling for one!</p>
+  <p><em>We know that you will connect with so many passionate chefs through PlateToPlate.<br />Let your connections know if you'd be open to hosting a 'cooking date' or if you'd enjoy traveling for one!</em></p>
 
   <div class="form-group">
-    <%= f.label "Happy to Host?" %>    <%= f.check_box :happy_to_host%>
-    <%= f.label "Happy to Travel?" %>    <%= f.check_box :happy_to_travel %>
+    <div class = "row">
+      <div class = "col-md-3">
+        <%= f.label "Happy to Host!" %>    <%= f.check_box :happy_to_host%>
+      </div>
+      <div class = "col-md-3">
+        <%= f.label "Tempted to Travel!" %>    <%= f.check_box :happy_to_travel %>
+      </div>
+    </div>
   </div>
 
   <div class="actions">
     <%= f.submit "Sign up", class: "btn btn-default"%>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>

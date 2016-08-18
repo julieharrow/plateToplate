@@ -1,10 +1,9 @@
-<h2>Edit<%= resource_name.to_s.humanize %></h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
     <div class="field form-group pull-right">
       <%= f.label "Provide a photo for your profile!" %> <br />
+      <%= image_tag :avatar, class:"profile-image" %>
       <%= f.file_field :avatar %>
     </div></br>
 
@@ -20,11 +19,11 @@
       <%= f.text_area :my_story, placeholder: "Tell our community a little bit about youreself!" %>
     </div>
 
-    <p>We know that you will connect with so many passionate chefs through PlateToPlate.<br />Let your connections know if you'd be open to hosting a 'cooking date' or if you'd enjoy traveling for one!</p>
+    <p><em>We know that you will connect with so many passionate chefs through PlateToPlate.<br />Let your connections know if you'd be open to hosting a 'cooking date' or if you'd enjoy traveling for one!</em></p>
 
     <div class="form-group">
-      <%= f.label "Happy to Host?" %>    <%= f.check_box :happy_to_host%>
-      <%= f.label "Happy to Travel?" %>    <%= f.check_box :happy_to_travel %>
+      <%= f.label "Happy to Host" %>    <%= f.check_box :happy_to_host%>
+      <%= f.label "Tempted to Travel" %>    <%= f.check_box :happy_to_travel %>
     </div>
 
     <div id="interest">
@@ -62,12 +61,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class:"btn btn-default" %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Time to leave our community? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-default" %></p>
 
 <%= link_to "Back", :back %>

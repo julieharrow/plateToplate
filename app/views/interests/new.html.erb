@@ -1,4 +1,4 @@
-<h1>What are your interests?</h1>
+<h1><%= current_user.name.titleize %>, tell us about the types of food that you like to eat!</h1>
 
 <%= form_for(@user, url: user_registration_path) do |f| %>
   <div id="interest">
@@ -7,18 +7,19 @@
     <% end %>
 
     <div class = "links">
-      <%= f.label "Which cuisines are you interested in either learning from OR teaching to others in your community?" %>
+      <%= f.label "Which cuisines are you interested in either learning from OR teaching to others in your community?" %><br />
       <%= link_to_add_association 'Add Cuisine', f, :interests %>
-    </div><br />
+    </div><br /><br />
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label "When you have finished, please input your current password to save these preferences to your profile:" %>
     <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.submit "Done", class: "btn btn-default" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+
   </div>
 
 <% end %>
