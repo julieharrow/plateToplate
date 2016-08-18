@@ -17,6 +17,7 @@
 body {
   font-family: 'Cabin', sans-serif;
   /*font-family: 'Signika', sans-serif;*/
+  color: black;
 }
 
  .cant-see-me {
@@ -54,7 +55,7 @@ body {
  }
 
  body {
-   background: rgba(175,196,65,.75);
+   background: rgba(200,200,200,.7);
  }
 
 .italicize {
@@ -70,6 +71,7 @@ body {
 
 .jumbotron {
   background: rgba(255,255,255,0.75);
+  color: black;
 }
 
 .navbar {
@@ -78,6 +80,11 @@ body {
 
 .nav {
   font-size: 20px;
+}
+
+html {
+   background: url("food_sharing.jpg") no-repeat;
+   background-size: cover;
 }
 
  .sessions {
@@ -123,9 +130,4 @@ body {
         text-align: center;
         vertical-align: middle;
         border: 1px solid black;
-}
-
-body.sessions {
-  background: url("./backgrounds/food_table.jpg") no-repeat;
-  background-size: cover;
 }
