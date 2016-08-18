@@ -8,9 +8,9 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <h2><%= link_to teach_interest.user.name, profile_path(teach_interest.user.id) %></h2>
-            <%= if teach_interest.user in @nearby_users %>
-              <h5><%= *lives near to you! %></h5>
-            <% end %>
+            <!-- <#%= if teach_interest.user in @nearby_users %> -->
+              <!-- #<h5><%= *lives near to you! %></h5> -->
+            <!-- <#% end %> -->
             <div>
             <% if teach_interest.user.avatar_file_name != nil %>
               <%= image_tag teach_interest.user.avatar.url(:thumb) %>
@@ -34,9 +34,9 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <h2><%= link_to learn_interest.user.name, profile_path(learn_interest.user.id) %></h2>
-            <%= if teach_interest.user in @nearby_users %>
-              <h5><%= *lives near to you! %></h5>
-            <% end %>
+            <!-- <#%= if learn_interest.user in @nearby_users %> -->
+              <!-- #<h5><%= *lives near to you! %></h5> -->
+            <!-- <#% end %> -->
             <div>
             <% if learn_interest.user.avatar_file_name != nil %>
               <%= image_tag learn_interest.user.avatar.url(:thumb) %>
