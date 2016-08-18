@@ -39,7 +39,7 @@ cuisines.each do |cuisine|
   Cuisine.create(name: cuisine)
 end
 
-100.times do |n|
+31.times do |n|
   email = "email##{n}@email.com"
   User.create(name: Faker::Internet.user_name,
               my_story: Faker::Hipster.paragraph,
@@ -64,22 +64,22 @@ end
   end
 end
 
-100.times do |n|
-  id = n
+30.times do |n|
+  id = n + 1
   Interest.create(user_id: id,
                   cuisine_id: Faker::Number.between(1, 24),
                   learn: Faker::Boolean.boolean(0.5),
                   teach: Faker::Boolean.boolean(0.5))
 end
-100.times do |n|
-  id = n
+30.times do |n|
+  id = n + 1
   Interest.create(user_id: id,
                   cuisine_id: Faker::Number.between(1, 24),
                   learn: Faker::Boolean.boolean(1),
                   teach: Faker::Boolean.boolean(0))
 end
-100.times do |n|
-  id = n
+30.times do |n|
+  id = n + 1 
   Interest.create(user_id: id,
                   cuisine_id: Faker::Number.between(1, 24),
                   learn: Faker::Boolean.boolean(0),
