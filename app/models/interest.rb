@@ -5,6 +5,7 @@ class Interest < ActiveRecord::Base
   def self.wants_to_learn
     where(learn: true)
   end
+
   def self.wants_to_teach
     where(teach: true)
   end

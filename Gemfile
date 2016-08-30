@@ -55,7 +55,6 @@ end
 
 group :test do
   gem 'simplecov', require: false #added
-  gem 'capybara' #added
   gem 'factory_girl_rails' #added
 end
 
